@@ -5,8 +5,8 @@ const authenticateJWT = require('../middlewares/authMiddleware.js');
 
 
 // Routes for user-related operations
-router.get('/api/:id_user',authenticateJWT, apiController.getApi);
-router.post('/api',authenticateJWT, apiController.insertApi);
+router.get('/api/:id_user', apiController.getApi);
+router.post('/api', apiController.insertApi);
 
 
 module.exports = router;

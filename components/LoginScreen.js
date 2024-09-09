@@ -13,7 +13,8 @@ LoginScreen
       await loginUser(email, password);
       Alert.alert('Success', 'Logged in successfully!');
       // Optionally navigate to another screen
-      navigation.navigate('HomeScreen');
+      navigation.navigate('MainTabs', { screen: 'HomeScreen' });
+
     } catch (error) {
       Alert.alert('Login Failed', error.message);
     }
