@@ -3,9 +3,9 @@ const db = new sqlite3.Database('./db/mydb.sqlite');
 
 
 
-const createNotes = (req, res) => {
-    const { subject, text , id_user} = req.body;
-    db.run('INSERT INTO notes (subject, text, id_user) VALUES (?, ?,?)', [subject, text, id_user], function (err) {
+const insertApi = (req, res) => {
+    const { api_key , id_user} = req.body;
+    db.run('INSERT INTO api (api_key, id_user) VALUES (?, ?)', [api_key, id_user], function (err) {
       if (err) {
         return res.status(500).json({ error: err.message });
       }
@@ -15,9 +15,9 @@ const createNotes = (req, res) => {
 
 
 
-  const getNotes = (req, res) => {
+  const getApi = (req, res) => {
     const id_user = req.params.id_user;
-    db.all('SELECT * FROM notes where id_user = ? ', [id_user], (err, rows) => {
+    db.all('SELECT * FROM api where id_user = ? ', [id_user], (err, rows) => {
       if (err) {
         return res.status(500).json({ error: err.message });
       }
@@ -27,7 +27,7 @@ const createNotes = (req, res) => {
 
   module.exports = {
 
-    createNotes,
-    getNotes
+    getApi,
+    insertApi
 
   }

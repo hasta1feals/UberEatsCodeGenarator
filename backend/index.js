@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes'); // Import the user routes
 const authRoutes = require('./routes/authRoutes'); // Import the auth routes
-const notesRoutes = require('./routes/notesRoutes'); // Import the notes routes
+const apiRoutes = require('./routes/apiRoutes'); // Import the notes routes
 
 require('dotenv').config();
 
@@ -23,7 +23,7 @@ app.use(express.json()); // Replaces body-parser
 // Use the routes
 app.use(userRoutes);
 app.use(authRoutes);
-app.use(notesRoutes);
+app.use(apiRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
