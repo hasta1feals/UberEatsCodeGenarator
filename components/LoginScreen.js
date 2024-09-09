@@ -7,13 +7,13 @@ import styles from './LoginscreenCss.js'; // Import the styles
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+LoginScreen
   const handleLogin = async () => {
     try {
       await loginUser(email, password);
       Alert.alert('Success', 'Logged in successfully!');
       // Optionally navigate to another screen
-      // navigation.navigate('HomeScreen');
+      navigation.navigate('HomeScreen');
     } catch (error) {
       Alert.alert('Login Failed', error.message);
     }
