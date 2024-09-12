@@ -63,6 +63,61 @@ export const getApiNumber = async (juicyApiKey) => {
   }
 };
 
+export const cancelApiNumber = async (juicyApiKey, orderID) => {
+  try {
+    const response = await axios.get(
+      `https://juicysms.com/api/cancelorder?key=${juicyApiKey}&orderId=${orderID}`
+    );
+
+    // Check if the response data exists and is what you expect
+    if (response?.data) {
+      console.log('API Response:', response.data); // Log the response for debugging
+      return response; // Return the relevant data part of the response
+    } else {
+      throw new Error('Invalid response from server');
+    }
+  } catch (error) {
+    // Simplify and clarify error handling
+    const status = error.response?.status || 'Unknown status';
+    const errorMessage = error.response?.data?.message || error.message || 'Error occurred';
+    
+    console.error(`Error fetching API number: 
+      Status: ${status}, 
+      Message: ${errorMessage}
+    `);
+
+    // Throw a more informative error
+    throw new Error(`Failed to fetch API number: ${errorMessage}`);
+  }
+};
+
+export const getSmscode = async (juicyApiKey, orderID) => {
+  try {
+    const response = await axios.get(
+      `https://juicysms.com/api/getsms?key=${juicyApiKey}&orderId=${orderID}`
+    );
+
+    // Check if the response data exists and is what you expect
+    if (response?.data) {
+      console.log('API Response:', response.data); // Log the response for debugging
+      return response; // Return the relevant data part of the response
+    } else {
+      throw new Error('Invalid response from server');
+    }
+  } catch (error) {
+    // Simplify and clarify error handling
+    const status = error.response?.status || 'Unknown status';
+    const errorMessage = error.response?.data?.message || error.message || 'Error occurred';
+    
+    console.error(`Error fetching API number: 
+      Status: ${status}, 
+      Message: ${errorMessage}
+    `);
+
+    // Throw a more informative error
+    throw new Error(`Failed to fetch API number: ${errorMessage}`);
+  }
+};
 
 
 export const getApiKey = async (id ) => {

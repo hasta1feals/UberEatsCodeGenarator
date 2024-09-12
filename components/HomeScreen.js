@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ActivityIndicator, Button, Alert } from 'react-native';
+import styles from './HomeScreenStyle.js'; // Import the styles
+
 
 import { getToken } from '../services/authService';
 import { getUser } from '../services/userAuth';
@@ -47,18 +49,13 @@ export default function HomeScreen({navigation}) {
   }
 
   return (
-    <View>
-      <Text>Home Screen</Text>
-      <Text>Your token: {token || 'No token found'}</Text>
-      
-      {/* Safely access the message and user email */}
-      <Text>Message: {data?.message || 'No message'}</Text>
-      <Text>User Email: {data?.user?.email || 'No email available'}</Text>
-      <Text>User ID: {data?.user?.id || 'No user ID available'}</Text>
-
-
-      <Button title="Login" onPress={switchTosettings} />
-
-    </View>
+    <View style={styles.container}>
+    <Text style={styles.header}>Home Screen</Text>
+    <Text style={styles.token}>Your token: {token || 'No token found'}</Text>
+    <Text style={styles.info}>Message: {data?.message || 'No message'}</Text>
+    <Text style={styles.info}>User Email: {data?.user?.email || 'No email available'}</Text>
+    <Text style={styles.info}>User ID: {data?.user?.id || 'No user ID available'}</Text>
+    <Button title="Login" onPress={switchTosettings} color="#007bff" />
+  </View>
   );
 }

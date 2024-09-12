@@ -4,7 +4,7 @@ import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { getToken } from '../services/authService';
 import { getUser } from '../services/userAuth';
 import { putAPi } from '../services/apiServices.js';
-import styles from './LoginscreenCss.js'; // Import the styles
+import styles from './SettingScreenStyle.js'; // Import the styles
 
 const LoginScreen = ({ navigation }) => {
   const [api_key, setApi_key] = useState('');
@@ -28,9 +28,7 @@ const LoginScreen = ({ navigation }) => {
         setId_user(userData.user.id);
       } catch (error) {
         console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchTokenAndUser();
@@ -51,7 +49,7 @@ LoginScreen
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Set API_KEY</Text>
       <TextInput
         style={styles.input}
         placeholder="API_KEY"
