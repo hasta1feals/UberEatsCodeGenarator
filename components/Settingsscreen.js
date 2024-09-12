@@ -25,7 +25,7 @@ const LoginScreen = ({ navigation }) => {
         console.log('Fetched user data:', userData); // Log user data to the console
  
         setData(userData);
-        setId_user(userData.user.id);r
+        setId_user(userData.user.id);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {

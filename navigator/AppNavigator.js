@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'; // Navigation Co
 import LoginScreen from '../components/LoginScreen';
 import HomeScreen from '../components/HomeScreen';
 import SettingsScreen from '../components/Settingsscreen';
+import SmsScreen from '../components/SmsScreen';
 
 
 // Create the bottom tab navigator
@@ -21,6 +22,8 @@ function MainTabNavigator() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="SmsScreen" component={SmsScreen} />
+
      
     </Tab.Navigator>
   );
