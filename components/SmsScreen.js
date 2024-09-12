@@ -36,26 +36,21 @@ export default function SmsScreen({ navigation }) {
 
     fetchTokenAndUser();
   }, []);
-
   const handleSms = async () => {
     try {
       const apiKey = await getApiKey(idUser); // Fetch API key
-    //   console.log('API Key Object:', apiKeyObject); // Log to see if it's fetching the key correctly
-  
-   
-  
-      
       console.log('API Key String:', apiKey.data[0].api_key); // Log to ensure it's the correct key
   
       // Fetch the number using the correct API key
       const fetchedNumberResponse = await getApiNumber(apiKey.data[0].api_key);
-    //   console.log('Fetched response:', fetchedNumberResponse); // Log the response
+      console.log('Fetched response:', fetchedNumberResponse); // Log the response
   
       const responseText = fetchedNumberResponse.data;
-      setSms = (responseText)
-     
-        setNumber(apiKey.data[0].api_key); // Set the extracted number in state
-   
+      
+      setSms(responseText); // Correct usage of setSms to set the state value
+  
+      setNumber(apiKey.data[0].api_key); // Set the extracted number in state
+  
       Alert.alert('Success', 'Sent successfully!');
     } catch (error) {
       console.error('Error in handleSms:', error);
