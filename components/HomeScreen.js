@@ -50,12 +50,13 @@ export default function HomeScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.header}>Home Screen</Text>
-    <Text style={styles.token}>Your token: {token || 'No token found'}</Text>
-    <Text style={styles.info}>Message: {data?.message || 'No message'}</Text>
-    <Text style={styles.info}>User Email: {data?.user?.email || 'No email available'}</Text>
-    <Text style={styles.info}>User ID: {data?.user?.id || 'No user ID available'}</Text>
-    <Button title="Login" onPress={switchTosettings} color="#007bff" />
+    <Text style={styles.header}>UBER EATS CODE</Text>
+    {/* <Text style={styles.token}>Your token: {token || 'No token found'}</Text> */}
+     <Text style={styles.token}>PROMO CODES: LEKKER143</Text>
+    {/* <Text style={styles.info}>Message: {data?.message || 'No message'}</Text> */}
+    {/* <Text style={styles.info}>User Email: {data?.user?.email || 'No email available'}</Text> */}
+    {/* <Text style={styles.info}>User ID: {data?.user?.id || 'No user ID available'}</Text> */}
+    {/* <Button title="Login" onPress={switchTosettings} color="#007bff" /> */}
   </View>
   );
 }

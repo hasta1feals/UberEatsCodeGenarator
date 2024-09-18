@@ -9,6 +9,7 @@ import LoginScreen from '../components/LoginScreen';
 import HomeScreen from '../components/HomeScreen';
 import SettingsScreen from '../components/Settingsscreen';
 import SmsScreen from '../components/SmsScreen';
+import OpenAiScreen from '../components/openAiScreen';
 
 // Create the bottom tab navigator
 const Tab = createBottomTabNavigator();
@@ -28,8 +29,10 @@ function MainTabNavigator() {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
-          } else if (route.name === 'SmsScreen') {
+          } else if (route.name === 'Sms') {
             iconName = focused ? 'mail' : 'mail-outline';
+          }else if (route.name === 'AI Assistant') {
+            iconName = focused ? 'chatbubble' : 'chatbox-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -38,8 +41,9 @@ function MainTabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="AI Assistant" component={OpenAiScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
-      <Tab.Screen name="SmsScreen" component={SmsScreen} />
+      <Tab.Screen name="Sms" component={SmsScreen} />
     </Tab.Navigator>
   );
 }

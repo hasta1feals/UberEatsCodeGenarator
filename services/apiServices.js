@@ -3,15 +3,14 @@ import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
 // Base URL of your backend
-const API_URL = 'http://172.20.10.6:3000'; // Replace with your machine's IP address
+const API_URL = 'http://172.20.10.2:3000'; // Replace with your machine's IP address
 
 // Function to handle login
 
 export const putAPi = async (api_key, id_user) => {
   try {
-    const response = await axios.post(`${API_URL}/api`, {
-      api_key,
-      id_user,
+    const response = await axios.post(`${API_URL}/apiKey/${id_user}`, {
+      api_key
     });
 
     const message = "Succes";

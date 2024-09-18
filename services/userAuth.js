@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getUser = async (tokenUser) => {
   try {
     // Make the authenticated request
-    const response = await axios.get('http://172.20.10.6:3000/protected', {
+    const response = await axios.get('http://172.20.10.2:3000/protected', {
       headers: {
         'Authorization': `Bearer ${tokenUser}`,
       },

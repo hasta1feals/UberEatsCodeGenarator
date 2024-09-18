@@ -38,7 +38,7 @@ LoginScreen
   const handleInsert = async () => {
     try {
       await putAPi(api_key, id_user);
-      Alert.alert('Success', 'Send in successfully!');
+    Alert.alert('API KEY UPDATED');
       // Optionally navigate to another screen
       navigation.navigate('MainTabs', { screen: 'HomeScreen' });
 

@@ -7,19 +7,16 @@ const API_URL = 'http://172.20.10.2:3000'; // Replace with your machine's IP add
 
 // Function to handle login
 
-export const loginUser = async (email, password) => {
+export const message = async (message) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, {
-      email,
-      password,
+    const response = await axios.post(`${API_URL}/ai-response`, {
+      message
     });
 
-    const { token } = response.data;
+  
 
-    // Save the token securely using Expo SecureStore
-    await SecureStore.setItemAsync('jwtToken', token);
 
-    return token;
+    return response;
   } catch (error) {
     // Extract and log detailed error information
     const status = error.response?.status || 'Unknown status';
@@ -38,12 +35,4 @@ export const loginUser = async (email, password) => {
 }
 
 
-// Function to retrieve the token
-export const getToken = async () => {
-  return await SecureStore.getItemAsync('jwtToken');
-};
 
-// Function to clear the token
-export const clearToken = async () => {
-  await SecureStore.deleteItemAsync('jwtToken');
-};
