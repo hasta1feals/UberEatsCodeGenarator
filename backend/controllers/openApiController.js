@@ -4,7 +4,7 @@ const { AzureKeyCredential } = require("@azure/core-auth");
 // Azure API call
 const getAIResponse = async (req, res) => {
     const {message } = req.body;
-  const token = "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"; // plsss change this to .env lol
+  const token =  process.env.TOKEN; // plsss change this to .env lol
 
   try {
     const client = new ModelClient(
