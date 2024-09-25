@@ -1,5 +1,3 @@
-Sure! Here's a sample README for your Uber Eats SMS code generator project using React. You can customize it further to fit your project's specific details.
-
 ```markdown
 # Uber Eats SMS Code Generator
 
